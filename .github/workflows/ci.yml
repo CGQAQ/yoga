@@ -41,8 +41,7 @@ jobs:
           buck --version
 
       - name: Build
-        if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macOS')
-        run: buck build //:yoga#default,shared
+        run: buck build --verbose 8 //:yoga#default,shared
 
       - name: Release
         uses: justjavac/action-gh-push@v1
